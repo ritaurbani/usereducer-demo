@@ -76,14 +76,14 @@ function App() {
 //     }))
 //   }
 
-//   const cloneTask = (i) => {//duplica indica restituire una copia che aggiungi alla ffine dell array-(non con map, perche map modifica)
-//   setTasks(curr => {  
-//   //estrae il task che si trova nell'indice i dell'array curr
-//     const taskToClone = curr[i];
-//     //nuovo array che include tutti i task originali più il task duplicato (clonato).
-//     return [...curr, taskToClone]
-//   });
-//   }
+  const cloneTask = (i) => {//duplica indica restituire una copia che aggiungi alla ffine dell array-(non con map, perche map modifica)
+  setTasks(curr => {  
+  //estrae il task che si trova nell'indice i dell'array curr
+    const taskToClone = curr[i];
+    //nuovo array che include tutti i task originali più il task duplicato (clonato).
+    return [...curr, taskToClone]
+  });
+  }
 
 
 //   const deleteTask = (i) => {

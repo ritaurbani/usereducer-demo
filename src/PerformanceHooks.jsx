@@ -1,12 +1,15 @@
 import { useEffect, useState, memo } from "react";
 
-const UserCard = memo(({name, username, website, email}) => {//ora quando incremento count non mi ricrea cards da 0
+const UserCard = memo(({name, username, website, email, title, age, color}) => {//ora quando incremento count non mi ricrea cards da 0
     console.log("Render UserCard:", username);
     return (
         <div className="card">
+            <h2>{title}</h2>
             <h3>{name}({username})</h3>
             <p>Website: {website}</p>
             <p>Email: {email}</p>
+            <p>Age: {age}</p>
+            <p>Color: {color}</p>
         </div>
     );
 });
@@ -33,7 +36,11 @@ return (
         <p>Count: {count}</p>
         {
             users.map((user, i) => (
-                <UserCard key={i} {...user}/>
+                <UserCard key={i} 
+                title="ciao"
+                color="blue"
+                age={30}
+                {...user}/>
             ))
         }
     </div>

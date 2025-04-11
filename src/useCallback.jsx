@@ -14,7 +14,7 @@ import { useState, useCallback } from "react"
 function App() {
     const [tasks, setTasks] = useState([])
     //funzione ritornata da create...
-    //anche questa quando componente App viene rirendierizzato viene ricreata > usiamo useCallback
+    //questa quando componente App viene rirendierizzato viene ricreata > usiamo useCallback >
     const generateId = useCallback(createIdGenerator(), [])//ora incrementa id come dovrebbe, prima id non si incrementava, era sempre 0
 
     //questa funzione modifica lo stato tasks > triggera rirender del componente App > 

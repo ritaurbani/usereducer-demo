@@ -1,6 +1,6 @@
 import { useEffect, useState, memo } from "react";
 
-const UserCard = memo(({name, username, website, email, title, age, color}) => {//ora quando incremento count non mi ricrea cards da 0
+const UserCard = memo(({name, username, website, email, title, age, color}) => {//con memo quando incremento count non mi ricrea cards da 0
     console.log("Render UserCard:", username);
     return (
         <div className="card">

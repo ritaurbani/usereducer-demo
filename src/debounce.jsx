@@ -46,16 +46,28 @@
 //se eseguo funzione senza aspettare delay, in realta eseguo solo una volta
 //perche pulisco timeout ogni volta
 
-function debounce(callback, delay){               
+function debounce(callback, delay){//callback: la funzione da eseguire (ex:il filtro o la ricerca).
+
+       
     let timer = 0;
     return (value) => {
         clearTimeout(timer);
+        // Cancelliamo il timer precedente ogni volta che l'utente 
+        // digita qualcosa di nuovo.
+        // Così se continua a scrivere, resettiamo il countdown.
+
+
         timer = setTimeout(() => {
-            callback(value)
+            callback(value)//dopo il delay, se l’utente NON ha scritto di nuovo, eseguo la callback
         }, delay);
     }
 }
 
+// Ogni volta che l’utente scrive una lettera → chiamiamo la funzione ritornata da debounce
+
+// clearTimeout(timer) resetta il countdown → "ok aspetta, l’utente sta ancora scrivendo!"
+
+// Quando l’utente si ferma e passa il tempo di delay(es. 500ms) → eseguo la callback.
 
 import {useEffect, useState, useCallback} from "react"
 
@@ -96,6 +108,22 @@ function App() {
         eseguiFetch(query)
     }, [query])
 }
+
+// Ogni volta che query cambia(cioè ogni volta che l'utente scrive una lettera nell'input)
+
+// Scatta il useEffect
+
+// Dentro il useEffect chiami eseguiFetch(query)
+
+// E siccome eseguiFetch è una funzione debounce, ogni volta che viene chiamata, lei resetta il timer.
+
+//     Quindi:
+
+// Scrivo "B" → query cambia → parte useEffect → chiama eseguiFetch("B") → debounce resetta timer
+
+// Scrivo "Ba" → query cambia → parte useEffect → chiama eseguiFetch("Ba") → debounce resetta timer
+
+// Scrivo "Bat" → ecc.
 
 return (
     //input controllato perche state query e associato all input

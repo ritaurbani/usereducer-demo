@@ -97,9 +97,9 @@ function App() {
 
     //3.
     //uso con useCallback
-    const eseguiFetch = useCallback(debounce((query) => {//debounce prende una callback e un tempo delay
-        console.log("API call:", query)
-    }, 500), [])//vuoto per creare eseguiFetch solo una volta
+    // const eseguiFetch = useCallback(debounce((query) => {//debounce prende una callback e un tempo delay
+    //     console.log("API call:", query)
+    // }, 500), [])//vuoto per creare eseguiFetch solo una volta
 
 
 

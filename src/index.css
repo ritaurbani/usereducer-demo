@@ -16,3 +16,8 @@ input{
 .container {
    margin: 0 auto;
 }
+
+video {
+    display: block;
+    margin-bottom: 10px;
+}

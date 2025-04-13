@@ -92,27 +92,27 @@ import { useState, useRef, useEffect } from "react"
 
 //VIDEO
 
-function UseRef() {
+// function UseRef() {
 
-    const videoRef = useRef()
+//     const videoRef = useRef()
     
-    const playVideo =() => videoRef.current.play()
-    const pauseVideo =() => videoRef.current.pause()
+//     const playVideo =() => videoRef.current.play()
+//     const pauseVideo =() => videoRef.current.pause()
 
-    return (
-        <div>
-            <video 
-            width= "300"
-            src="https://www.w3schools.com/html/mov_bbb.mp4"
-            ref={videoRef}
-            // controls
-            />
-            <button onClick={playVideo}>Play</button>
-            <button onClick={pauseVideo}>Pause</button>
-        </div>
-    )
+//     return (
+//         <div>
+//             <video 
+//             width= "300"
+//             src="https://www.w3schools.com/html/mov_bbb.mp4"
+//             ref={videoRef}
+//             // controls
+//             />
+//             <button onClick={playVideo}>Play</button>
+//             <button onClick={pauseVideo}>Pause</button>
+//         </div>
+//     )
 
-}
+// }
 
 
 // //FORM

@@ -16,7 +16,8 @@ function App() {
     //funzione ritornata da create...
     //questa quando componente App viene rirendierizzato viene ricreata > usiamo useCallback >
     const generateId = useCallback(createIdGenerator(), [])//ora incrementa id come dovrebbe, prima id non si incrementava, era sempre 0
-
+    //senza useCallback
+    // const returnedId = createIdGenerator();
     //questa funzione modifica lo stato tasks > triggera rirender del componente App > 
     //il che signnifica che ricrea tutte le funzioni e le variabili dichiarate al suo interno >
     //anche la funzione generateId viene ricreata da 0 azzerando il contatore > usiamo useCallback

@@ -1,26 +1,30 @@
-import React, { use, useState } from 'react'
+import React, { useMemo, useState, useCallback } from 'react'
+
+const createIdGenerator = () => {
+    let count = 0;
+    return() => {
+        const id = count
+        count++
+        return id
+    }
+}
 
 const Practice = () => {
 
-    const [query, setQuery] = useState("")
+const [taks, setTasks] = useState([])
 
-    const getQuery = async () => {
-        if(!query.trim()){
-            return
-        }
-    }
-    try{
-        const resp = await fetch(``)
-        const data = await resp.json()
-        setQuery(data)
-    }catch(error){
-        console.error("no data available")
-    }
+const returnedId = useCallback(createIdGenerator(), [])
 
+const addTask = () => {
+    const id = returnedId()
+    const newTask = {id, name: `Task ${setTasks.length}`}
+    setTasks((prev) => [...prev, newTask])
+}
 
 return (
     <>
-    <h2>Ciao</h2></>
+    <h2>Ciao</h2>
+    </>
 )
 }
 

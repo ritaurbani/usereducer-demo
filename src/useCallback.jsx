@@ -21,6 +21,13 @@ function App() {
     //il che signnifica che ricrea tutte le funzioni e le variabili dichiarate al suo interno >
     //anche la funzione generateId viene ricreata da 0 azzerando il contatore > usiamo useCallback
     const addTask = () => {
+    // createIdGenerator() crea la funzione una volta sola.
+    // La funzione viene "salvata" in returnedId.
+    // Ogni volta che chiami returnedId(), incrementa count.
+    // createIdGenerator() → restituisce una funzione
+    // createIdGenerator()() → esegue subito la funzione ritornata
+    // Se vuoi mantenere lo stato interno come count tra più chiamate, 
+    // devi chiamare createIdGenerator() solo una volta
         const id = generateId();//id ad ogni esecuzione cresce
         const newTask = {id, name: `Task ${tasks.length}`};
         setTasks((prev) => [...prev, newTask])
